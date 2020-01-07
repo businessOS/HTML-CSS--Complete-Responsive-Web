@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header id="navbar">
+        <a href="#" class="logo">Good<span>Foods</span></a>
+        <ul>
+          <li><a href="#" class="active">Home</a></li>
+          <li><a href="#">Menu</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <span class="menuIcon" onclick="menuToggle();"></span>
+      </header>
+      <div class="content">
+        <div class="bannerText" id="slideshowText">
+          <div class="active">
+            <h2>
+              EAT Healthy <br />
+              Stay Healthy
+            </h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
+              minus eum animi mollitia repudiandae sint voluptate fugit vel
+              ipsam pariatur.
+            </p>
+            <a href="#">Read More</a>
+          </div>
+
+          <div>
+            <h2>
+              Eat your <br />
+              Veggies
+            </h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
+              minus eum animi mollitia repudiandae sint voluptate fugit vel
+              ipsam pariatur.
+            </p>
+            <a href="#">Read More</a>
+          </div>
+
+          <div>
+            <h2>
+              Good Food <br />
+              Good Mood
+            </h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
+              minus eum animi mollitia repudiandae sint voluptate fugit vel
+              ipsam pariatur.
+            </p>
+            <a href="#">Read More</a>
+          </div>
+        </div>
+        <div class="bannerImg" id="slideshow">
+          <img src="img1.jpeg" class="active" alt="" />
+          <img src="img2.jpeg" alt="" />
+          <img src="img3.jpeg" alt="" />
+        </div>
+      </div>
+      <div class="icons">
+        <ul class="sci">
+          <li>
+            <a href="#"><img src="facebook-logo.png" alt=""/></a>
+          </li>
+          <li>
+            <a href="#"><img src="twitter.png" alt=""/></a>
+          </li>
+          <li>
+            <a href="#"><img src="instagram.png" alt=""/></a>
+          </li>
+        </ul>
+        <ul class="controls">
+          <li>
+            <a><img src="left.png" onclick="prevSlide();" alt=""/></a>
+          </li>
+          <li>
+            <a><img src="rigth.png" onclick="nextSlide();" alt=""/></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <script type="text/javascript">
+      var slideshow = document.getElementById("slideshow");
+      var slides = slideshow.getElementsByTagName("img");
+
+      var slideshowText = document.getElementById("slideshowText");
+      var slidesText = slideshowText.getElementsByTagName("div");
+
+      var index = 0;
+      function nextSlide() {
+        slides[index].classList.remove("active");
+        slidesText[index].classList.remove("active");
+        index = (index + 1) % slides.length;
+        slidesText[index].classList.add("active");
+        slides[index].classList.add("active");
+      }
+      function prevSlide() {
+        slides[index].classList.remove("active");
+        slidesText[index].classList.remove("active");
+        index = (index - 1 + slides.length) % slides.length;
+        slidesText[index].classList.add("active");
+        slides[index].classList.add("active");
+      }
+      function menuToggle() {
+        var navbar = document.getElementById("navbar");
+        navbar.classList.toggle("active");
+      }
+    </script>
+  </body>
+</html>
